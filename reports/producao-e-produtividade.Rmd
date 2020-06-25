@@ -1,6 +1,8 @@
 ---
 title: "Regressão linear na prática"
-output: html_notebook
+output:
+  html_document:
+    df_print: paged
 ---
 
 ```{r warning=FALSE, echo=FALSE}
@@ -53,6 +55,7 @@ cacc = cacc_tudo %>%
 cacc_md = cacc %>% 
   filter(tem_doutorado)
 ```
+
 
 
 ### EDA
@@ -185,3 +188,15 @@ Considerando agora esses três fatores, o que podemos dizer sobre como cada um d
 Diferente de medirmos produção (total produzido), é medirmos produtividade (produzido / utilizado). Abaixo focaremos nessa análise. Para isso crie um modelo que investiga como um conjunto de fatores que você julga que são relevantes se relacionam com a produtividade dos programas. Crie um modelo que avalie como _pelo menos 3 fatores_ se relacionam com a produtividade de um programa. Pode reutilizar fatores que já definimos e analizamos para produção. Mas cuidado para não incluir fatores que sejam função linear de outros já incluídos (ex: incluir A, B e um tercero C=A+B)
 
 Produza abaixo o modelo e um texto que comente (i) o modelo, tal como os que fizemos antes, e (ii) as implicações - o que aprendemos sobre como funcionam programas de pós no brasil?.
+
+## Seleção das variáveis
+
+Para verificar quais variáveis possuem uma maior influência no modelo de regressão, vamos aplicar o método de seleção backward, partindo do modelo completo e eliminando uma variável por vez. Porém, considerando fatores que se comportam como uma função linear entre si, teremos como ponto de partida o sequinte modelos:
+
+Modelo 1: **produtividade ~ docentes + produção + tem_doutorado + mestrado + doutorado + mestrado_pprof + doutorado_pprof**
+
+Eliminar variáveis até restarem 3 (propabilidade + p-vvalor).
+plotar distribuição 4 variáveis
+Se sobrar tempo (plotar distribuição produtividade vs. fatores)
+
+
